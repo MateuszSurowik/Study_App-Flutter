@@ -11,8 +11,8 @@ class ResumeView extends StatelessWidget {
   Widget build(BuildContext context) {
     number++;
     return Card(
-      color: Color.fromARGB(255, 93, 67, 65),
-      margin: EdgeInsets.symmetric(horizontal: 40),
+      color: const Color.fromARGB(255, 93, 67, 65),
+      margin: const EdgeInsets.symmetric(horizontal: 40),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
@@ -21,7 +21,7 @@ class ResumeView extends StatelessWidget {
             child: TextButton(
                 style: TextButton.styleFrom(
                     backgroundColor: correct,
-                    shape: CircleBorder(eccentricity: 0.1)),
+                    shape: const CircleBorder(eccentricity: 0.1)),
                 onPressed: () {},
                 child: Text(
                   number.toString(),

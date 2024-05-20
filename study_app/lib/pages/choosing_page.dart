@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:study_app/widgets/ChoosingPage_ReviewList.dart';
+import 'package:study_app/widgets/List_Creator.dart';
 
 class ChoosingPage extends StatefulWidget {
   const ChoosingPage(this.startGame, {super.key});
@@ -19,8 +20,11 @@ class _ChoosingPageState extends State<ChoosingPage> {
             backgroundColor: const Color.fromARGB(255, 98, 42, 42),
             actions: [
               IconButton(
-                onPressed: () {},
-                icon: Icon(
+                onPressed: () {
+                  showBottomSheet(
+                      context: context, builder: (ctx) => ListCreator());
+                },
+                icon: const Icon(
                   Icons.add,
                   color: Colors.black,
                 ),

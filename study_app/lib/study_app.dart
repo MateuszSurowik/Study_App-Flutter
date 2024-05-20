@@ -4,6 +4,7 @@ import 'package:study_app/pages/ReviewGame.dart';
 import 'package:study_app/pages/choosing_page.dart';
 import 'package:study_app/pages/main_page.dart';
 import 'package:study_app/pages/resume_page.dart';
+import 'package:study_app/models/Translation_model.dart';
 
 class StudyApp extends StatefulWidget {
   const StudyApp({super.key});
@@ -16,32 +17,33 @@ class StudyApp extends StatefulWidget {
 class _StudyAppState extends State<StudyApp> {
   int currentPage = 1;
   Widget? changingScreen() {
-    Widget Page = MainPage(() {
+    Widget page = MainPage(() {
       goToChoosing();
     });
     setState(() {
       if (currentPage == 1) {
-        Page = MainPage(() {
+        page = MainPage(() {
           goToChoosing();
         });
       }
       if (currentPage == 2) {
-        Page = ChoosingPage(goToGameScreen);
+        page = ChoosingPage(goToGameScreen);
       }
       if (currentPage == 3) {
-        Page = ReviweGame(PickAnswaer);
+        page = ReviweGame(pickAnswaer);
       }
       if (currentPage == 4) {
-        Page = ResumePage(Answears, goToChoosing);
+        page = ResumePage(answears, goToChoosing);
       }
     });
-    return Page;
+    return page;
   }
 
   void goToChoosing() {
     setState(() {
       currentPage = 2;
-      Answears = [];
+      answears = [];
+      Translationlist = [];
     });
   }
 
@@ -54,18 +56,17 @@ class _StudyAppState extends State<StudyApp> {
   void goToResume() {
     setState(
       () {
-        if (Translationlist.length == Answears.length) {
+        if (Translationlist.length == answears.length) {
           currentPage = 4;
         }
       },
     );
   }
 
-  List<String> Answears = [];
+  List<String> answears = [];
 
-  void PickAnswaer(String answar) {
-    Answears.add(answar);
-    print(Answears);
+  void pickAnswaer(String answar) {
+    answears.add(answar);
     goToResume();
   }
 

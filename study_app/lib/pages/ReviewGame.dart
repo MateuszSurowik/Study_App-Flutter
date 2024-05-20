@@ -49,8 +49,8 @@ class _ReviewGameState extends State<ReviweGame> {
                         clickAnswar(item);
                       },
                       style: TextButton.styleFrom(
-                        backgroundColor: Color.fromARGB(255, 98, 42, 42),
-                        padding: EdgeInsets.symmetric(horizontal: 50),
+                        backgroundColor: const Color.fromARGB(255, 98, 42, 42),
+                        padding: const EdgeInsets.symmetric(horizontal: 50),
                       ),
                       child: Text(
                         item.toString(),

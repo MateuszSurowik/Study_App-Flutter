@@ -1,0 +1,1 @@
+ C:\\programowanie\ projekty\\portfolio\\flutter\\Study_App-Flutter\\study_app\\.dart_tool\\flutter_build\\f0920c497b335800d93955ce581dfa57\\native_assets.yaml: 
