@@ -2,13 +2,14 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:path/path.dart' as path;
-import 'package:study_app/data/TranslationData.dart';
 import 'package:study_app/jsonManager.dart';
 import 'package:study_app/DataFiller.dart';
-import 'package:study_app/models/Translation_model.dart';
+import 'package:path_provider/path_provider.dart';
+import 'dart:async';
 
 class ReviewListOnChoosingPage extends StatefulWidget {
-  const ReviewListOnChoosingPage(this.startGame, {Key? key}) : super(key: key);
+  ReviewListOnChoosingPage(this.startGame, {Key? key}) : super(key: key);
+
   final void Function() startGame;
 
   @override
@@ -20,7 +21,6 @@ class _ReviewListOnChoosingPageState extends State<ReviewListOnChoosingPage> {
   final JsonManager _jsonManager = JsonManager();
   List<String> wordsList = [];
   List<String> translationsList = [];
-
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -43,6 +43,17 @@ class _ReviewListOnChoosingPageState extends State<ReviewListOnChoosingPage> {
                   margin: const EdgeInsets.all(15),
                   child: Row(
                     children: [
+                      IconButton(
+                          onPressed: () async {
+                            final Directory directory =
+                                await getApplicationDocumentsDirectory();
+                            final File file =
+                                File('${directory.path}/$fileName.json');
+                            await file.delete(recursive: true);
+                            setState(() {});
+                          },
+                          icon: Icon(Icons.delete)),
+                      Spacer(),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text(

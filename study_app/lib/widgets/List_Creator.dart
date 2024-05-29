@@ -4,7 +4,7 @@ import 'dart:convert';
 import 'dart:io';
 
 class ListCreator extends StatefulWidget {
-  const ListCreator({Key? key}) : super(key: key);
+  ListCreator({Key? key}) : super(key: key);
 
   @override
   State<ListCreator> createState() => _ListCreatorState();
@@ -101,7 +101,7 @@ class _ListCreatorState extends State<ListCreator> {
     String fileContent = await file.readAsString();
     print('Content of $listTitle.json:');
     print(fileContent);
-
+    print(directory.path);
     // Wyczyszczenie pól po dodaniu
     _wordController.clear();
     _translationController.clear();
