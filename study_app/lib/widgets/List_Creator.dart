@@ -96,7 +96,6 @@ class _ListCreatorState extends State<ListCreator> {
       // Jeśli plik nie istnieje, tworzymy nowy plik z nowymi danymi
       await file.writeAsString(jsonEncode(jsonData));
     }
-
     // Wyświetlenie zawartości pliku JSON w konsoli
     String fileContent = await file.readAsString();
     print('Content of $listTitle.json:');
@@ -105,7 +104,6 @@ class _ListCreatorState extends State<ListCreator> {
     // Wyczyszczenie pól po dodaniu
     _wordController.clear();
     _translationController.clear();
-
     // Wyczyszczenie list słów i tłumaczeń po dodaniu
     words.clear();
     translations.clear();
